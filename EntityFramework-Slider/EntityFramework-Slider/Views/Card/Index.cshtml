@@ -1,0 +1,55 @@
+﻿@model List<BasketVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Count</th>
+      <th scope="col">Price</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                  <td>
+                     <img src="~/img/@item.Product.Images.FirstOrDefault()?.Image" style="width: 100px; height: 100px;"/>
+                  </td>
+                  <td>@item.Product.Name</td>
+                  <td>@item.Product.Description</td>
+                  <td>@item.Count</td>
+                  <td>@item.Product.Price</td>
+
+                </tr>
+
+            }
+  </tbody>
+</table>
+
+    @{
+        decimal totalPrice = 0;
+
+        foreach (var item in Model)
+        {
+            totalPrice += (item.Product.Price * item.Count);
+        }
+    }
+
+   
+        <div class="total-price">
+            <span>Total price: $ @totalPrice </span>
+        </div>
+
+   
+</div>
+

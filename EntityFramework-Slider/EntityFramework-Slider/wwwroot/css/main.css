@@ -1,0 +1,15 @@
+﻿
+.total-price {
+    width: 250px;
+    height: 70px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+.total-price span{
+    font-size: 20px;
+}
